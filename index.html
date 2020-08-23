@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .flex-container {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 960px;
+        margin: auto;
+      }
+      .container1 {
+        width: 70%;
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+      }
+      .container2 {
+        width: 30%;
+      }
+      .container1 > li {
+        width: 170px;
+        border: 1px solid black;
+        font-size: 50px;
+        color: #ffffff;
+        text-align: center;
+        line-height: 170px;
+      }
+      .square1 {
+        background-color: #efefef;
+      }
+      .square2 {
+        /*  */
+        background-color: #2b8ead;
+      }
+      .square3 {
+        background-color: #333333;
+      }
+      .square4 {
+        background-color: #6f98a8;
+      }
+      .square5 {
+        background-color: #bfbfbf;
+      }
+      .square6 {
+        background-color: #2f454e;
+      }
+      .button {
+        background-color: #2b8ead;
+        margin-top: 20px;
+        padding: 5px 20px;
+        border-radius: 5px;
+        border: 1px solid #2b8ead;
+        width: 130px;
+        color: #ffffff;
+      }
+      .heading {
+          text-align: center;
+      }
+      .footer {
+          text-align: center;
+      }
+      @media screen and (max-width: 375px) {
+        .flex-container {
+          display: block;
+          position: relative;
+        }
+        .container1 {
+          display: block;
+          width: 100%;
+          padding: 0px;
+        }
+        .container1 > li {
+          width: 100%;
+          line-height: 70px;
+          color: #000000;
+        }
+        .square5,
+        .square4,
+        .square3,
+        .square2,
+        .square1,
+        .square6 {
+          background-color: #bfbfbf;
+        }
+        li:before {
+          border-left: 5px solid red;
+        }
+        .container2 {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+        .topButtons {
+          height: 50px;
+        }
+        .button {
+            margin-right: 20px;
+        }
+        .footer {
+          text-align: center;
+      }
+      }
+    </style>
+  </head>
+  <body>
+      <div>
+        <h4 class='heading'>Shuffle and Sort</h4>
+    <div class="flex-container">
+        
+      <div class="topButtons"></div>
+
+      <ul id="board" class="container1">
+        <li id="0" class="square4">1</li>
+        <li id="1" class="square2">2</li>
+        <li id="2" class="square3">3</li>
+        <li id="3" class="square2">4</li>
+        <li id="4" class="square3">5</li>
+        <li id="5" class="square5">6</li>
+        <li id="6" class="square5">7</li>
+        <li id="7" class="square4">8</li>
+        <li id="8" class="square3">9</li>
+      </ul>
+
+      <div class="container2">
+        <div>
+          <button class="button" onclick="Shuffle()">Shuffle</button>
+        </div>
+        <div>
+          <button class="button" onclick="Sort()">Sort</button>
+        </div>
+      </div>
+    </div>
+
+    <p class='footer'>Shuffle and Sort by Gunjan Bothra</p>
+</div>
+    <script>
+      let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      function Shuffle() {
+        var count = arr.length,
+          temp,
+          index;
+
+        while (count > 0) {
+          index = Math.floor(Math.random() * count);
+          count--;
+          temp = arr[count];
+          arr[ccounttr] = arr[index];
+          arr[index] = temp;
+        }
+
+        for (let i = 0; i < arr.length; i++) {
+          document.getElementById(i).innerHTML = arr[i];
+        }
+      }
+
+      function Sort() {
+        arr.sort();
+        for (let i = 0; i < arr.length; i++) {
+          document.getElementById(i).innerHTML = arr[i];
+        }
+      }
+    </script>
+  </body>
+</html>
